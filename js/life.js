@@ -4,12 +4,12 @@
 // Single Array, boundary checks, no roll over from side to side
 // or top to bottom. 
 let reset = false;
-let startDensity = .7;
+let startDensity = .3 ;
 let boardArray = [];
-const boardWidth = 150;
-const boardHeight = 150;
+const boardWidth = 100;
+const boardHeight = 100;
 const totalCells = boardWidth*boardHeight;
-const size = "2px";
+const size = "4px";
 
 function setupGame(width, height)
 {
@@ -25,8 +25,15 @@ function setupGame(width, height)
     document.querySelector(".world").appendChild(newElement);
     boardArray.push(newElement);
 
+    // check for mouseover
+    newElement.addEventListener("mouseover", (event) => 
+    {
+      if(event.buttons > 0)
+      true;
+      // Add Life bomb
+    });
     // Randomly generate numbers
-    if(Math.random() > startDensity) alive(newElement);
+    if(Math.random() < startDensity) alive(newElement);
     else dead(newElement);
   } 
   calculateNeighbors();
@@ -34,7 +41,7 @@ function setupGame(width, height)
 
 function resetGame(){
   for(i = 0; i < totalCells; i++){
-    if(Math.random() > .7) alive(boardArray[i]);
+    if(Math.random() < startDensity) alive(boardArray[i]);
     else dead(boardArray[i]);
   }
   calculateNeighbors();

@@ -6,6 +6,16 @@ body{
   align-content:center;
 }
 
+h1,h5 {
+  line-height:1em;
+  margin: 5px;
+  padding: 0;
+}
+
+p {
+  text-align:center;
+}
+
 button {
   margin:10px;
 }
