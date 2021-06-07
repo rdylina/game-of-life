@@ -1,0 +1,24 @@
+div {
+  margin:0;
+  padding:0;
+}
+
+.container {
+  display:grid;
+  justify-content:center;
+}
+
+.world {
+  display: grid; 
+  width: min-content;
+  /* grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr); */
+  gap: 0px 0px;
+  row-gap: 0px;
+  column-gap: 0px;
+}
+
+div {
+  font-size:10px;
+  text-align:center;
+}
