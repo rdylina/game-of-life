@@ -4,6 +4,7 @@
 // Single Array, boundary checks, no roll over from side to side
 // or top to bottom. 
 let reset = false;
+let startDensity = .7;
 let boardArray = [];
 const boardWidth = 150;
 const boardHeight = 150;
@@ -25,19 +26,17 @@ function setupGame(width, height)
     boardArray.push(newElement);
 
     // Randomly generate numbers
-    if(Math.random() > .5){
-      newElement.style.backgroundColor = "black";
-      newElement.style.color = "white";
-      newElement.life = 1;
-      newElement.lifeCounter = 0;
-    } else
-    {
-      newElement.style.color = "black";
-      newElement.life = 0;
-      newElement.lifeCounter = 0;
-    }
-
+    if(Math.random() > startDensity) alive(newElement);
+    else dead(newElement);
   } 
+  calculateNeighbors();
+}
+
+function resetGame(){
+  for(i = 0; i < totalCells; i++){
+    if(Math.random() > .7) alive(boardArray[i]);
+    else dead(boardArray[i]);
+  }
   calculateNeighbors();
 }
 
@@ -126,8 +125,9 @@ function calculateNeighbors(){
 
 // setup game and run on a specific interval
 // Interval may be problematic 
+document.querySelector("button").addEventListener("click", resetGame);
 setupGame(boardWidth, boardHeight);
-setInterval(gameCycle, 200);
+setInterval(gameCycle, 100);
 
 
 
