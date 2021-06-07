@@ -16,6 +16,7 @@ div {
   gap: 0px 0px;
   row-gap: 0px;
   column-gap: 0px;
+  border: 5px solid rgba(0,0,0,.5);
 }
 
 div {

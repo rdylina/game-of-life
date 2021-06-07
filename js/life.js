@@ -3,7 +3,7 @@
 // Built from scratch without reviewing existing solutions
 // Single Array, boundary checks, no roll over from side to side
 // or top to bottom. 
-
+let reset = false;
 let boardArray = [];
 const boardWidth = 150;
 const boardHeight = 150;
@@ -43,11 +43,8 @@ function setupGame(width, height)
 
 function gameCycle(){
 
-  // console.log(boardArray);
-
     // Cycle through and update board based on last rounds calculations
     for(i = 0; i < boardArray.length; i++){
-
       // apply life rules to this cell
       if(boardArray[i].lifeCounter == 3)
         alive(boardArray[i]); 
@@ -59,8 +56,6 @@ function gameCycle(){
     }
 
   calculateNeighbors();
-
-  console.log("cycle finished");
 }
 
 function alive(element){
@@ -78,7 +73,6 @@ function dead(element){
 }
 
 function calculateNeighbors(){
-
   for(i = 0; i < boardArray.length; i++)
   {
     let positionCheck = [];
@@ -133,5 +127,9 @@ function calculateNeighbors(){
 // setup game and run on a specific interval
 // Interval may be problematic 
 setupGame(boardWidth, boardHeight);
-setInterval(gameCycle, 10);
+setInterval(gameCycle, 200);
+
+
+
+
 
